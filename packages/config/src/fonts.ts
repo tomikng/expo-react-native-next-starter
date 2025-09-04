@@ -1,7 +1,8 @@
 import { createFont } from 'tamagui'
 
-export const interFont = createFont({
-  family: 'Inter',
+export const helveticaFont = createFont({
+  family:
+    '"Helvetica Neue", Helvetica, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif',
   size: {
     true: 12,
     'text-xs': 12,
@@ -69,31 +70,31 @@ export const interFont = createFont({
   },
   face: {
     '100': {
-      normal: 'Inter-Light',
+      normal: 'HelveticaNeue-Thin',
     },
     '200': {
-      normal: 'Inter-Light',
+      normal: 'HelveticaNeue-UltraLight',
     },
     '300': {
-      normal: 'Inter-Light',
+      normal: 'HelveticaNeue-Light',
     },
     '400': {
-      normal: 'Inter-Regular',
+      normal: 'HelveticaNeue',
     },
     '500': {
-      normal: 'Inter-Medium',
+      normal: 'HelveticaNeue-Medium',
     },
     '600': {
-      normal: 'Inter-SemiBold',
+      normal: 'HelveticaNeue-Bold',
     },
     '700': {
-      normal: 'Inter-Bold',
+      normal: 'HelveticaNeue-Bold',
     },
     '800': {
-      normal: 'Inter-ExtraBold',
+      normal: 'HelveticaNeue-Heavy',
     },
     '900': {
-      normal: 'Inter-Black',
+      normal: 'HelveticaNeue-Black',
     },
   },
 })

@@ -1,4 +1,4 @@
-import { Button as TamaguiButton, type ButtonProps } from 'tamagui'
+import { type ButtonProps, Button as TamaguiButton } from 'tamagui'
 
 export type CustomButtonProps = Omit<ButtonProps, 'variant'> & {
   variant?: 'primary' | 'secondary' | 'ghost'
@@ -9,29 +9,40 @@ export const Button = ({ variant = 'primary', ...props }: CustomButtonProps) => 
     switch (variant) {
       case 'primary':
         return {
-          backgroundColor: '$bg-brand-solid',
-          color: '$text-primary-on-brand',
-          borderColor: '$border-brand',
+          backgroundColor: '$color12',
+          color: '$background',
+          borderWidth: 0,
           hoverStyle: {
-            backgroundColor: '$bg-brand-solid_hover',
+            backgroundColor: '$color11',
+          },
+          pressStyle: {
+            backgroundColor: '$color10',
           },
         }
       case 'secondary':
         return {
-          backgroundColor: '$bg-secondary',
-          color: '$text-primary',
-          borderColor: '$border-primary',
+          backgroundColor: 'transparent',
+          color: '$color12',
+          borderWidth: 1,
+          borderColor: '$color8',
           hoverStyle: {
-            backgroundColor: '$bg-secondary_hover',
+            backgroundColor: '$color3',
+            borderColor: '$color10',
+          },
+          pressStyle: {
+            backgroundColor: '$color4',
           },
         }
       case 'ghost':
         return {
           backgroundColor: 'transparent',
-          color: '$text-primary',
+          color: '$color11',
           borderColor: 'transparent',
           hoverStyle: {
-            backgroundColor: '$bg-secondary_hover',
+            backgroundColor: '$color4',
+          },
+          pressStyle: {
+            backgroundColor: '$color5',
           },
         }
       default:
@@ -41,9 +52,12 @@ export const Button = ({ variant = 'primary', ...props }: CustomButtonProps) => 
 
   return (
     <TamaguiButton
-      size="$4"
-      fontWeight="$6"
-      borderRadius="$radius-md"
+      fontWeight="600"
+      borderRadius="$6"
+      paddingHorizontal="$6"
+      paddingVertical="$3"
+      fontSize="$4"
+      minWidth={120}
       {...getVariantStyles()}
       {...props}
     />

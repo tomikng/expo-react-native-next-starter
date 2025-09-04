@@ -2,7 +2,7 @@ import { shorthands } from '@tamagui/shorthands'
 import { createTamagui, createTokens, setupDev } from 'tamagui'
 import { animations } from './animations'
 import { colors } from './colors'
-import { interFont } from './fonts'
+import { helveticaFont } from './fonts'
 import { media } from './media'
 import { themes } from './themes'
 
@@ -126,8 +126,8 @@ export const config = createTamagui({
   themes,
   media,
   fonts: {
-    body: interFont,
-    heading: interFont,
+    body: helveticaFont,
+    heading: helveticaFont,
   },
   tokens: createTokens({
     color,
@@ -174,15 +174,15 @@ export const config = createTamagui({
       'spacing-11xl': 160,
       'spacing-full': 9999,
     },
-    fontSize: interFont.size,
-    lineHeight: interFont.lineHeight,
-    letterSpacing: interFont.letterSpacing,
+    fontSize: helveticaFont.size,
+    lineHeight: helveticaFont.lineHeight,
+    letterSpacing: helveticaFont.letterSpacing,
     size: {
-      ...interFont.size,
+      ...helveticaFont.size,
       true: 0,
     },
     fontWeight: {
-      ...interFont.fontWeight,
+      ...helveticaFont.fontWeight,
       true: 0,
     },
   }),

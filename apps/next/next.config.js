@@ -16,15 +16,18 @@ const plugins = [
     components: ['tamagui', '@my/ui'],
     appDir: true,
     importsWhitelist: ['constants.js', 'colors.js'],
-    outputCSS: process.env.NODE_ENV === 'production' ? './public/tamagui.css' : null,
+    outputCSS: './public/tamagui.css',
     logTimings: true,
     disableExtraction,
     shouldExtract: (path) => {
       if (path.includes(join('packages', 'app'))) {
         return true
       }
+      if (path.includes(join('packages', 'ui'))) {
+        return true
+      }
     },
-    disableThemesBundleOptimize: true,
+    disableThemesBundleOptimize: process.env.NODE_ENV === 'development',
     excludeReactNativeWebExports: ['Switch', 'ProgressBar', 'Picker', 'CheckBox', 'Touchable'],
   }),
   (nextConfig) => {
