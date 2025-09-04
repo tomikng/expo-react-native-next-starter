@@ -7,7 +7,10 @@ import { TamaguiProvider } from 'tamagui'
 export const NextTamaguiProvider = ({ children }: { children: React.ReactNode }) => {
   return (
     <NextThemeProvider>
-      <TamaguiProvider config={config} defaultTheme="light">
+      <TamaguiProvider
+        config={config}
+        defaultTheme="light"
+      >
         {children}
       </TamaguiProvider>
     </NextThemeProvider>

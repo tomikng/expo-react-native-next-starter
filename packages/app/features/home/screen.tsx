@@ -1,3 +1,5 @@
+'use client'
+
 import { Button, Text, YStack } from '@my/ui'
 
 export const HomeScreen = () => {

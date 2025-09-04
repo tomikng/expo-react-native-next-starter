@@ -1,3 +1,5 @@
+'use client'
+
 import { config } from '@my/config'
 import { TamaguiProvider, type TamaguiProviderProps } from 'tamagui'
 

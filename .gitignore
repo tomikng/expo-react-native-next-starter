@@ -9,7 +9,6 @@ node_modules/
 dist/
 build/
 *.tsbuildinfo
-.tamagui
 
 # Environment variables
 .env
@@ -92,6 +91,7 @@ android/
 
 # Tamagui
 tamagui.css
+.tamagui
 
 # Metro
 .metro-health-check*
