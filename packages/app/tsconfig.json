@@ -1,0 +1,18 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "composite": true,
+    "outDir": "dist",
+    "rootDir": ".",
+    "skipLibCheck": true,
+    "jsx": "react-jsx",
+    "types": ["node"],
+    "paths": {
+      "@my/ui": ["../ui/src"],
+      "@my/config": ["../config/src"]
+    }
+  },
+  "include": ["**/*"],
+  "exclude": ["node_modules", "dist"],
+  "references": [{ "path": "../ui" }, { "path": "../config" }]
+}

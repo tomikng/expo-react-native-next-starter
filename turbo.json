@@ -1,0 +1,21 @@
+{
+  "$schema": "https://turborepo.org/schema.json",
+  "globalEnv": ["DISABLE_EXTRACTION", "NODE_ENV", "EAS_BUILD_PLATFORM"],
+  "pipeline": {
+    "build": {
+      "env": ["DISABLE_EXTRACTION", "NODE_ENV", "EAS_BUILD_PLATFORM"],
+      "dependsOn": ["^build"],
+      "outputs": [".next/**", "!.next/cache/**", "build/**", "node_modules/.cache/metro/**"],
+      "inputGlob": ["**/*.{js,jsx,ts,tsx,json,md,mdx}", "!**/*.stories.{js,jsx,ts,tsx}"]
+    },
+    "test": {
+      "dependsOn": ["build"],
+      "outputs": [],
+      "inputGlob": ["**/*.{js,jsx,ts,tsx,json}", "!**/*.stories.{js,jsx,ts,tsx}"]
+    },
+    "dev": {
+      "cache": false,
+      "persistent": true
+    }
+  }
+}

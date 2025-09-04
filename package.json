@@ -1,0 +1,71 @@
+{
+  "name": "react-native-template",
+  "version": "0.0.1",
+  "private": true,
+  "workspaces": [
+    "./apps/*",
+    "./packages/*"
+  ],
+  "scripts": {
+    "native": "cd apps/expo && yarn start",
+    "native:prebuild": "cd apps/expo && yarn prebuild",
+    "ios": "cd apps/expo && yarn ios",
+    "android": "cd apps/expo && yarn android",
+    "watch": "ultra -r --no-pretty --concurrency 400 watch",
+    "vercel:install": "yarn set version 3.5 && yarn install",
+    "storybook": "cd apps/storybook && yarn dev",
+    "storybook:build": "cd apps/storybook && yarn build-storybook",
+    "web": "yarn build && cd apps/next && yarn next",
+    "web:extract": "DISABLE_EXTRACTION=false yarn workspace next-app dev",
+    "web:prod": "yarn workspace next-app build",
+    "web:prod:serve": "yarn workspace next-app serve",
+    "build": "yarn workspaces foreach --all --exclude next-app run build",
+    "upgrade:tamagui": "yarn up '*tamagui*'@latest '@tamagui/*'@latest",
+    "upgrade:tamagui:canary": "yarn up '*tamagui*'@canary '@tamagui/*'@canary",
+    "check-tamagui": "tamagui check",
+    "test": "vitest run ",
+    "test:watch": "vitest",
+    "prepare": "husky",
+    "lint-sherif": "npx --yes sherif@latest",
+    "delete-all-node_modules": "rm -rf node_modules && rm -rf packages/*/node_modules && rm -rf apps/*/node_modules",
+    "clean": "yarn delete-all-node_modules && yarn install"
+  },
+  "resolutions": {
+    "react": "19.0.0",
+    "react-dom": "19.0.0",
+    "react-refresh": "^0.14.0",
+    "react-native-svg": "15.11.2",
+    "react-native-web": "^0.20.0"
+  },
+  "dependencies": {
+    "react": "19.0.0",
+    "react-dom": "19.0.0"
+  },
+  "packageManager": "yarn@4.5.0",
+  "engines": {
+    "npm": "please-use-yarn",
+    "yarn": "4.5.0"
+  },
+  "engineStrict": true,
+  "devDependencies": {
+    "@babel/runtime": "^7.24.6",
+    "@biomejs/biome": "^2.1.2",
+    "@commitlint/cli": "^19.2.5",
+    "@commitlint/config-conventional": "^19.2.5",
+    "@tamagui/cli": "^1.131.3",
+    "@types/node": "^20.14.1",
+    "check-dependency-version-consistency": "^4.1.0",
+    "husky": "^9.1.7",
+    "lint-staged": "^16.0.0",
+    "ts-node": "^10.9.2",
+    "turbo": "^1.13.4",
+    "typescript": "^5.6.2",
+    "ultra-runner": "^3.10.5",
+    "vitest": "^2.1.1"
+  },
+  "lint-staged": {
+    "*.{js,ts,jsx,tsx}": [
+      "npx @biomejs/biome check --write"
+    ]
+  }
+}
