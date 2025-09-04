@@ -9,6 +9,7 @@ node_modules/
 dist/
 build/
 *.tsbuildinfo
+.tamagui
 
 # Environment variables
 .env

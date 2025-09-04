@@ -31,15 +31,15 @@
     "clean": "yarn delete-all-node_modules && yarn install"
   },
   "resolutions": {
-    "react": "19.0.0",
-    "react-dom": "19.0.0",
+    "react": "18.3.1",
+    "react-dom": "18.3.1",
     "react-refresh": "^0.14.0",
     "react-native-svg": "15.11.2",
     "react-native-web": "^0.20.0"
   },
   "dependencies": {
-    "react": "19.0.0",
-    "react-dom": "19.0.0"
+    "react": "18.3.1",
+    "react-dom": "18.3.1"
   },
   "packageManager": "yarn@4.5.0",
   "engines": {
