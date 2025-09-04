@@ -12,7 +12,6 @@
   },
   "dependencies": {
     "@my/ui": "0.0.1",
-    "@tamagui/metro-plugin": "^1.132.23",
     "app": "0.0.0",
     "expo": "^53.0.19",
     "expo-constants": "~17.1.7",
