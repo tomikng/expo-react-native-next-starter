@@ -1,21 +1,23 @@
 # React Native Template
 
-A modern React Native monorepo template with Tamagui, Next.js, and Expo.
+A modern React Native monorepo template with Next.js and Expo.
 
 ## What's Included
 
 - 🏗️ **Monorepo setup** with Turbo and Yarn workspaces
 - ⚛️ **React Native** with Expo and Next.js
-- 🎨 **Tamagui** for cross-platform UI components
 - 📱 **Universal apps** - one codebase for web, iOS, and Android
+- 🎨 **React Native core components** with custom styling
 - 🔧 **TypeScript** throughout
 - 📦 **Package structure** for shared logic and components
 - 🎯 **Biome** for linting and formatting
+- 🧪 **Vitest** for fast unit testing
 - 🔨 **Conventional commits** with automated changelog
+- 🚀 **Corepack** for consistent package manager versioning
 
 ## Project Structure
 
-```
+```text
 ├── apps/
 │   ├── expo/          # React Native app with Expo
 │   ├── next/          # Next.js web app
@@ -24,18 +26,24 @@ A modern React Native monorepo template with Tamagui, Next.js, and Expo.
 │   ├── ui/            # Shared UI components
 │   ├── app/           # Shared app logic and screens
 │   ├── api/           # API client and types
-│   └── config/        # Tamagui configuration and theme
+│   └── config/        # Shared configuration and theme
 └── turbo.json         # Turbo build configuration
 ```
 
 ## Getting Started
 
-1. **Install dependencies**
+1. **Enable Corepack** (if not already enabled)
+   ```bash
+   corepack enable
+   ```
+   This ensures you're using the correct Yarn version (4.5.0) specified in `package.json`.
+
+2. **Install dependencies**
    ```bash
    yarn install
    ```
 
-2. **Start the development servers**
+3. **Start the development servers**
    ```bash
    # Web development
    yarn web
@@ -47,7 +55,7 @@ A modern React Native monorepo template with Tamagui, Next.js, and Expo.
    yarn watch
    ```
 
-3. **Build for production**
+4. **Build for production**
    ```bash
    yarn build
    ```
@@ -59,33 +67,107 @@ A modern React Native monorepo template with Tamagui, Next.js, and Expo.
 - `yarn ios` - Run on iOS simulator
 - `yarn android` - Run on Android emulator
 - `yarn build` - Build all packages
-- `yarn test` - Run tests
-- `yarn lint` - Check code quality
+- `yarn typecheck` - Run TypeScript type checking across all workspaces
+- `yarn test` - Run all tests with Vitest
+- `yarn test:watch` - Run tests in watch mode
+- `yarn lint` - Check code quality with Biome
+- `yarn lint:fix` - Auto-fix linting and formatting issues
 
-## Adding New Components
+## Code Quality
 
-Use the built-in generators to create new components:
+This project maintains high code quality through automated checks in separate CI workflows.
 
+### Type Checking
+
+TypeScript type safety is enforced without suppressing errors.
+
+**Running Type Checks:**
 ```bash
-# Generate a new UI component
-yarn turbo gen ui-component
+# Type check all workspaces
+yarn typecheck
 
-# Generate a new screen
-yarn turbo gen screen
-
-# Generate a new API endpoint
-yarn turbo gen api-route
+# Type check a specific workspace
+cd apps/next && yarn typecheck
 ```
+
+**TypeScript Configuration:**
+- Type checking is enabled in all workspaces
+- Test files (`.test.ts`, `.test.tsx`) are excluded from builds but still type-checked
+- The Next.js build will fail on TypeScript errors (no `ignoreBuildErrors`)
+
+### Linting & Formatting
+
+This template uses [Biome](https://biomejs.dev/) for fast linting and formatting.
+
+**Running Lint Checks:**
+```bash
+# Check for linting issues
+yarn lint
+
+# Auto-fix issues
+yarn lint:fix
+```
+
+**CI Pipeline:**
+
+The GitHub Actions CI pipeline is optimized for speed with parallel execution and smart job dependencies:
+
+```
+┌─────────────────────────────────────────────────────┐
+│  Stage 1: Quality Checks (run in parallel)          │
+├─────────────────────┬───────────────────────────────┤
+│  Lint               │  Type Check                   │
+│  • Biome linter     │  • TypeScript (all packages)  │
+│  • Code formatting  │  • Next.js app                │
+│                     │  • Expo app                   │
+└─────────────────────┴───────────────────────────────┘
+            │                      │
+            └──────────┬───────────┘
+                       ▼
+    ┌──────────────────────────────────────┐
+    │   Both must pass before Stage 2      │
+    └──────────────────────────────────────┘
+                       │
+           ┌───────────┴───────────┐
+           ▼                       ▼
+┌──────────────────────┐  ┌──────────────────────┐
+│  Build               │  │  Test                │
+│  • Build packages    │  │  • Vitest unit tests │
+│  • Next.js build     │  │  • All workspaces    │
+│  • Expo validation   │  │                      │
+└──────────────────────┘  └──────────────────────┘
+```
+
+**Pipeline Benefits:**
+- ✅ **Fast Feedback**: Quality checks run first and in parallel
+- ✅ **Efficient**: Build and test run concurrently (only after quality checks pass)
+- ✅ **Cached**: Dependencies and build artifacts are cached between jobs
+- ✅ **Fail Fast**: Pipeline stops immediately if quality checks fail
+
+## Testing
+
+This template uses [Vitest](https://vitest.dev/) for unit testing. Tests are located alongside the source files with a `.test.ts` or `.test.tsx` extension.
+
+**Running Tests:**
+```bash
+# Run all tests
+yarn test
+
+# Run tests in watch mode (for development)
+yarn test:watch
+```
+
+**Example Test Files:**
+- `apps/next/lib/utils.test.ts` - Utility function tests
+- `apps/next/app/layout.test.tsx` - Metadata tests
+- `packages/ui/src/Button.test.tsx` - Component tests
+- `packages/app/features/home/screen.test.tsx` - Screen component tests
 
 ## Customization
 
 ### Theme and Colors
 
-Edit `packages/config/src/colors.ts` and `packages/config/src/themes.ts` to customize your app's theme.
-
-### Fonts
-
-Update `packages/config/src/fonts.ts` to change typography settings.
+Edit `packages/config/src/index.ts` to customize your app's colors, spacing, and border radius values.
 
 ### API Configuration
 

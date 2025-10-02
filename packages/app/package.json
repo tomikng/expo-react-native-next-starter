@@ -2,24 +2,38 @@
   "name": "app",
   "version": "0.0.0",
   "private": true,
-  "types": "./index.ts",
-  "main": "./index.ts",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "default": "./dist/index.js"
+    },
+    "./provider": {
+      "types": "./dist/provider/index.d.ts",
+      "import": "./dist/provider/index.js",
+      "default": "./dist/provider/index.js"
+    },
+    "./*": {
+      "types": "./dist/*.d.ts",
+      "import": "./dist/*.js",
+      "default": "./dist/*.js"
+    }
+  },
   "scripts": {
     "build": "tsc",
-    "watch": "tsc --watch"
+    "watch": "tsc --watch",
+    "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "@my/config": "0.0.1",
     "@my/ui": "0.0.1",
     "react": "19.0.0",
-    "react-native": "0.79.5",
-    "solito": "^4.0.1",
-    "tamagui": "^1.131.3"
+    "react-native": "0.79.5"
   },
   "devDependencies": {
     "@types/react": "^19.0.0",
     "@types/react-dom": "^19.0.0",
-    "@types/react-native": "^0.73.0",
-    "typescript": "^5.6.2"
+    "typescript": "~5.8.3"
   }
 }

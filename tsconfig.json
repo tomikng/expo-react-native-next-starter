@@ -1,6 +1,15 @@
 {
   "extends": "./tsconfig.base.json",
   "compilerOptions": {},
+  "exclude": [
+    "node_modules",
+    "**/dist",
+    "**/node_modules",
+    "**/*.test.ts",
+    "**/*.test.tsx",
+    "**/*.spec.ts",
+    "**/*.spec.tsx"
+  ],
   "references": [
     {
       "path": "./packages/ui"

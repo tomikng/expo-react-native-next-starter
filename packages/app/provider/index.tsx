@@ -1,15 +1,7 @@
 'use client'
 
-import { config } from '@my/config'
-import { TamaguiProvider, type TamaguiProviderProps } from 'tamagui'
+import type { ReactNode } from 'react'
 
-export const Provider = ({ children, ...rest }: Omit<TamaguiProviderProps, 'config'>) => {
-  return (
-    <TamaguiProvider
-      config={config}
-      {...rest}
-    >
-      {children}
-    </TamaguiProvider>
-  )
+export const Provider = ({ children }: { children: ReactNode }) => {
+  return <>{children}</>
 }

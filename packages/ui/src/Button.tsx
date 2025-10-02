@@ -1,65 +1,86 @@
-import { type ButtonProps, Button as TamaguiButton } from 'tamagui'
+import { Pressable, type PressableProps, StyleSheet, Text } from 'react-native'
 
-export type CustomButtonProps = Omit<ButtonProps, 'variant'> & {
+export type CustomButtonProps = Omit<PressableProps, 'style'> & {
   variant?: 'primary' | 'secondary' | 'ghost'
+  children?: React.ReactNode
 }
 
-export const Button = ({ variant = 'primary', ...props }: CustomButtonProps) => {
+export const Button = ({ variant = 'primary', children, ...props }: CustomButtonProps) => {
   const getVariantStyles = () => {
     switch (variant) {
       case 'primary':
         return {
-          backgroundColor: '$color12',
-          color: '$background',
-          borderWidth: 0,
-          hoverStyle: {
-            backgroundColor: '$color11',
-          },
-          pressStyle: {
-            backgroundColor: '$color10',
-          },
+          container: styles.primaryContainer,
+          text: styles.primaryText,
         }
       case 'secondary':
         return {
-          backgroundColor: 'transparent',
-          color: '$color12',
-          borderWidth: 1,
-          borderColor: '$color8',
-          hoverStyle: {
-            backgroundColor: '$color3',
-            borderColor: '$color10',
-          },
-          pressStyle: {
-            backgroundColor: '$color4',
-          },
+          container: styles.secondaryContainer,
+          text: styles.secondaryText,
         }
       case 'ghost':
         return {
-          backgroundColor: 'transparent',
-          color: '$color11',
-          borderColor: 'transparent',
-          hoverStyle: {
-            backgroundColor: '$color4',
-          },
-          pressStyle: {
-            backgroundColor: '$color5',
-          },
+          container: styles.ghostContainer,
+          text: styles.ghostText,
         }
       default:
-        return {}
+        return {
+          container: styles.primaryContainer,
+          text: styles.primaryText,
+        }
     }
   }
 
+  const variantStyles = getVariantStyles()
+
   return (
-    <TamaguiButton
-      fontWeight="600"
-      borderRadius="$6"
-      paddingHorizontal="$6"
-      paddingVertical="$3"
-      fontSize="$4"
-      minWidth={120}
-      {...getVariantStyles()}
+    <Pressable
+      style={({ pressed }) => [
+        styles.baseContainer,
+        variantStyles.container,
+        pressed && styles.pressed,
+      ]}
       {...props}
-    />
+    >
+      <Text style={[styles.baseText, variantStyles.text]}>{children}</Text>
+    </Pressable>
   )
 }
+
+const styles = StyleSheet.create({
+  baseContainer: {
+    paddingHorizontal: 24,
+    paddingVertical: 12,
+    borderRadius: 8,
+    minWidth: 120,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  baseText: {
+    fontSize: 16,
+    fontWeight: '600',
+  },
+  primaryContainer: {
+    backgroundColor: '#007AFF',
+  },
+  primaryText: {
+    color: '#FFFFFF',
+  },
+  secondaryContainer: {
+    backgroundColor: 'transparent',
+    borderWidth: 1,
+    borderColor: '#007AFF',
+  },
+  secondaryText: {
+    color: '#007AFF',
+  },
+  ghostContainer: {
+    backgroundColor: 'transparent',
+  },
+  ghostText: {
+    color: '#007AFF',
+  },
+  pressed: {
+    opacity: 0.7,
+  },
+})

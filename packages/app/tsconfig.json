@@ -6,6 +6,8 @@
     "rootDir": ".",
     "skipLibCheck": true,
     "jsx": "react-jsx",
+    "declaration": true,
+    "declarationMap": true,
     "types": ["node"],
     "paths": {
       "@my/ui": ["../ui/src"],
@@ -13,6 +15,13 @@
     }
   },
   "include": ["**/*"],
-  "exclude": ["node_modules", "dist"],
+  "exclude": [
+    "node_modules",
+    "dist",
+    "**/*.test.ts",
+    "**/*.test.tsx",
+    "**/*.spec.ts",
+    "**/*.spec.tsx"
+  ],
   "references": [{ "path": "../ui" }, { "path": "../config" }]
 }

@@ -1,9 +1,20 @@
 {
   "extends": "../../tsconfig.base.json",
   "compilerOptions": {
-    "composite": true,
-    "strict": true
+    "strict": true,
+    "jsx": "react-native",
+    "noEmit": true,
+    "skipLibCheck": true,
+    "types": ["node"],
+    "paths": {
+      "@my/ui": ["../../packages/ui/src"],
+      "@my/ui/*": ["../../packages/ui/src/*"],
+      "@my/config": ["../../packages/config/src"],
+      "@my/config/*": ["../../packages/config/src/*"],
+      "app": ["../../packages/app"],
+      "app/*": ["../../packages/app/*"]
+    }
   },
-  "include": ["**/*"],
+  "include": ["**/*.ts", "**/*.tsx", ".expo/types/**/*.ts", "expo-env.d.ts"],
   "exclude": ["node_modules"]
 }
