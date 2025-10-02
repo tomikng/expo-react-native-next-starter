@@ -13,18 +13,14 @@
     "dist"
   ],
   "scripts": {
-    "build": "tamagui-build --skip-types",
-    "watch": "tamagui-build --skip-types --watch"
+    "build": "echo 'No build needed'",
+    "watch": "echo 'No watch needed'"
   },
   "dependencies": {
-    "@my/config": "0.0.1",
-    "@tamagui/toast": "^1.131.3",
     "react": "19.0.0",
-    "react-native": "0.79.5",
-    "tamagui": "^1.131.3"
+    "react-native": "0.79.5"
   },
   "devDependencies": {
-    "@tamagui/build": "^1.131.3",
     "@types/node": "^20.14.1",
     "@types/storybook__react": "^5.2.1"
   }

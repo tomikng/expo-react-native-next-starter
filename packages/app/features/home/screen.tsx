@@ -1,100 +1,43 @@
 'use client'
 
-import { Button, Card, H1, H2, Paragraph, Text, XStack, YStack } from '@my/ui'
+import { View, Text, StyleSheet, ScrollView } from 'react-native'
+import { Button } from '@my/ui'
 
 export const HomeScreen = () => {
   return (
-    <YStack
-      flex={1}
-      backgroundColor="$background"
-      padding="$6"
-    >
+    <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
       {/* Hero Section */}
-      <YStack
-        justifyContent="center"
-        alignItems="center"
-        paddingVertical="$12"
-        space="$6"
-      >
+      <View style={styles.heroSection}>
         {/* App Icon */}
-        <YStack
-          width={120}
-          height={120}
-          backgroundColor="$color6"
-          borderRadius="$8"
-          justifyContent="center"
-          alignItems="center"
-          shadowColor="$shadowColor"
-          shadowOpacity={0.1}
-          shadowRadius={20}
-          elevation="$2"
-        >
-          <Text
-            fontSize="$10"
-            fontWeight="bold"
-          >
-            ⚡️
-          </Text>
-        </YStack>
+        <View style={styles.appIcon}>
+          <Text style={styles.iconText}>⚡️</Text>
+        </View>
 
         {/* Main Title */}
-        <YStack
-          space="$3"
-          alignItems="center"
-        >
-          <H1
-            size="$12"
-            fontWeight="$8"
-            color="$color12"
-            textAlign="center"
-            letterSpacing={-1}
-          >
-            React Native Template
-          </H1>
+        <View style={styles.titleSection}>
+          <Text style={styles.mainTitle}>React Native Template</Text>
 
-          <Paragraph
-            size="$6"
-            color="$color11"
-            textAlign="center"
-            maxWidth={500}
-            lineHeight="$7"
-          >
-            A modern cross-platform starter with Tamagui, Next.js, and Expo
-          </Paragraph>
-        </YStack>
+          <Text style={styles.subtitle}>
+            A modern cross-platform starter with Next.js and Expo
+          </Text>
+        </View>
 
         {/* Action Buttons */}
-        <XStack marginTop="$4">
+        <View style={styles.buttonRow}>
           <Button variant="primary">Get Started</Button>
           <Button variant="secondary">Learn More</Button>
-        </XStack>
-      </YStack>
+        </View>
+      </View>
 
       {/* Features Section */}
-      <YStack space="$6">
-        <H2
-          size="$9"
-          fontWeight="$7"
-          color="$color12"
-          textAlign="center"
-        >
-          What's Included
-        </H2>
+      <View style={styles.featuresSection}>
+        <Text style={styles.sectionTitle}>What's Included</Text>
 
-        <XStack
-          space="$4"
-          flexWrap="wrap"
-          justifyContent="center"
-        >
+        <View style={styles.featureGrid}>
           <FeatureCard
             icon="⚛️"
             title="React Native"
             description="Cross-platform mobile development"
-          />
-          <FeatureCard
-            icon="🎨"
-            title="Tamagui"
-            description="Universal design system"
           />
           <FeatureCard
             icon="🚀"
@@ -106,9 +49,14 @@ export const HomeScreen = () => {
             title="Expo"
             description="Easy mobile deployment"
           />
-        </XStack>
-      </YStack>
-    </YStack>
+          <FeatureCard
+            icon="🎯"
+            title="TypeScript"
+            description="Type-safe development"
+          />
+        </View>
+      </View>
+    </ScrollView>
   )
 }
 
@@ -121,43 +69,102 @@ const FeatureCard = ({
   title: string
   description: string
 }) => (
-  <Card
-    size="$4"
-    bordered
-    backgroundColor="$background"
-    borderColor="$color6"
-    hoverStyle={{
-      borderColor: '$color8',
-      backgroundColor: '$color2',
-    }}
-    pressStyle={{ scale: 0.98 }}
-    animation="quick"
-    width={180}
-    height={160}
-    padding="$5"
-  >
-    <Text
-      fontSize="$9"
-      textAlign="center"
-    >
-      {icon}
-    </Text>
-    <Text
-      fontSize="$6"
-      fontWeight="$6"
-      textAlign="center"
-      color="$color12"
-    >
-      {title}
-    </Text>
-    <Paragraph
-      fontSize="$4"
-      textAlign="center"
-      color="$color11"
-      numberOfLines={3}
-      lineHeight="$5"
-    >
-      {description}
-    </Paragraph>
-  </Card>
+  <View style={styles.featureCard}>
+    <Text style={styles.featureIcon}>{icon}</Text>
+    <Text style={styles.featureTitle}>{title}</Text>
+    <Text style={styles.featureDescription}>{description}</Text>
+  </View>
 )
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#FFFFFF',
+  },
+  contentContainer: {
+    padding: 24,
+  },
+  heroSection: {
+    alignItems: 'center',
+    paddingVertical: 48,
+  },
+  appIcon: {
+    width: 120,
+    height: 120,
+    backgroundColor: '#F0F0F0',
+    borderRadius: 16,
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginBottom: 24,
+  },
+  iconText: {
+    fontSize: 48,
+  },
+  titleSection: {
+    alignItems: 'center',
+    marginBottom: 24,
+  },
+  mainTitle: {
+    fontSize: 32,
+    fontWeight: 'bold',
+    color: '#000000',
+    textAlign: 'center',
+    marginBottom: 12,
+  },
+  subtitle: {
+    fontSize: 18,
+    color: '#666666',
+    textAlign: 'center',
+    maxWidth: 500,
+    lineHeight: 24,
+  },
+  buttonRow: {
+    flexDirection: 'row',
+    gap: 12,
+    marginTop: 16,
+  },
+  featuresSection: {
+    marginTop: 24,
+  },
+  sectionTitle: {
+    fontSize: 28,
+    fontWeight: 'bold',
+    color: '#000000',
+    textAlign: 'center',
+    marginBottom: 24,
+  },
+  featureGrid: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    justifyContent: 'center',
+    gap: 16,
+  },
+  featureCard: {
+    width: 180,
+    height: 160,
+    backgroundColor: '#FFFFFF',
+    borderWidth: 1,
+    borderColor: '#E0E0E0',
+    borderRadius: 12,
+    padding: 20,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  featureIcon: {
+    fontSize: 40,
+    marginBottom: 12,
+  },
+  featureTitle: {
+    fontSize: 18,
+    fontWeight: '600',
+    color: '#000000',
+    textAlign: 'center',
+    marginBottom: 8,
+  },
+  featureDescription: {
+    fontSize: 14,
+    color: '#666666',
+    textAlign: 'center',
+    lineHeight: 20,
+  },
+})

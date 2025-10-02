@@ -20,9 +20,6 @@
     "web:prod": "yarn workspace next-app build",
     "web:prod:serve": "yarn workspace next-app serve",
     "build": "yarn workspaces foreach --all --exclude next-app run build",
-    "upgrade:tamagui": "yarn up '*tamagui*'@latest '@tamagui/*'@latest",
-    "upgrade:tamagui:canary": "yarn up '*tamagui*'@canary '@tamagui/*'@canary",
-    "check-tamagui": "tamagui check",
     "test": "vitest run ",
     "test:watch": "vitest",
     "prepare": "husky",
@@ -35,7 +32,10 @@
     "react-dom": "19.0.0",
     "react-refresh": "^0.14.0",
     "react-native-svg": "15.11.2",
-    "react-native-web": "^0.20.0"
+    "react-native-web": "^0.20.0",
+    "metro": "^0.82.0",
+    "metro-resolver": "^0.82.0",
+    "metro-config": "^0.82.0"
   },
   "dependencies": {
     "react": "19.0.0",
@@ -52,14 +52,13 @@
     "@biomejs/biome": "^2.1.2",
     "@commitlint/cli": "^19.2.5",
     "@commitlint/config-conventional": "^19.2.5",
-    "@tamagui/cli": "^1.131.3",
     "@types/node": "^20.14.1",
     "check-dependency-version-consistency": "^4.1.0",
     "husky": "^9.1.7",
     "lint-staged": "^16.0.0",
     "ts-node": "^10.9.2",
     "turbo": "^1.13.4",
-    "typescript": "^5.6.2",
+    "typescript": "~5.8.3",
     "ultra-runner": "^3.10.5",
     "vitest": "^2.1.1"
   },
