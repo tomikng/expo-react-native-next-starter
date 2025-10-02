@@ -2437,8 +2437,6 @@ __metadata:
   resolution: "@my/config@workspace:packages/config"
   dependencies:
     "@types/node": "npm:^20.14.1"
-    react: "npm:19.0.0"
-    react-native: "npm:0.79.5"
   languageName: unknown
   linkType: soft
 

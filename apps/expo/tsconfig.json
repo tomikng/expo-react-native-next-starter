@@ -8,8 +8,11 @@
     "types": ["node"],
     "paths": {
       "@my/ui": ["../../packages/ui/src"],
+      "@my/ui/*": ["../../packages/ui/src/*"],
       "@my/config": ["../../packages/config/src"],
-      "app": ["../../packages/app"]
+      "@my/config/*": ["../../packages/config/src/*"],
+      "app": ["../../packages/app"],
+      "app/*": ["../../packages/app/*"]
     }
   },
   "include": ["**/*.ts", "**/*.tsx", ".expo/types/**/*.ts", "expo-env.d.ts"],

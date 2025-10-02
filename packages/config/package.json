@@ -16,10 +16,6 @@
     "watch": "echo 'No watch needed'",
     "typecheck": "tsc --noEmit"
   },
-  "dependencies": {
-    "react": "19.0.0",
-    "react-native": "0.79.5"
-  },
   "devDependencies": {
     "@types/node": "^20.14.1"
   }
