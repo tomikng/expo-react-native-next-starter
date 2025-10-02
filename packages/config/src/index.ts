@@ -8,7 +8,7 @@ export const colors = {
   background: '#FFFFFF',
   text: '#000000',
   textSecondary: '#666666',
-}
+} as const
 
 export const spacing = {
   xs: 4,
@@ -16,11 +16,11 @@ export const spacing = {
   md: 16,
   lg: 24,
   xl: 32,
-}
+} as const
 
 export const borderRadius = {
   sm: 4,
   md: 8,
   lg: 12,
   xl: 16,
-}
+} as const
