@@ -44,19 +44,16 @@ jobs:
         run: yarn lint
 
   typecheck:
-    name: Type Check (Node ${{ matrix.node-version }})
+    name: Type Check
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node-version: ['20', '22']
     
     steps:
       - uses: actions/checkout@v4
 
-      - name: Use Node.js ${{ matrix.node-version }}
+      - name: Use Node.js 22
         uses: actions/setup-node@v4
         with:
-          node-version: ${{ matrix.node-version }}
+          node-version: '22'
 
       - name: Enable Corepack
         run: corepack enable
@@ -67,12 +64,15 @@ jobs:
           path: |
             .yarn/cache
             .yarn/install-state.gz
-          key: ${{ runner.os }}-yarn-node${{ matrix.node-version }}-${{ hashFiles('**/yarn.lock') }}
+          key: ${{ runner.os }}-yarn-node22-${{ hashFiles('**/yarn.lock') }}
           restore-keys: |
-            ${{ runner.os }}-yarn-node${{ matrix.node-version }}-
+            ${{ runner.os }}-yarn-node22-
 
       - name: Install dependencies
         run: yarn install --immutable
+
+      - name: Build packages
+        run: yarn build
 
       - name: Type check
         run: yarn typecheck
