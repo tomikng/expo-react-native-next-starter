@@ -17,7 +17,7 @@ A modern React Native monorepo template with Next.js and Expo.
 
 ## Project Structure
 
-```
+```text
 ├── apps/
 │   ├── expo/          # React Native app with Expo
 │   ├── next/          # Next.js web app
