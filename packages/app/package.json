@@ -2,8 +2,15 @@
   "name": "app",
   "version": "0.0.0",
   "private": true,
-  "types": "./index.ts",
-  "main": "./index.ts",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "default": "./dist/index.js"
+    }
+  },
   "scripts": {
     "build": "tsc",
     "watch": "tsc --watch",
@@ -12,8 +19,7 @@
   "dependencies": {
     "@my/ui": "0.0.1",
     "react": "19.0.0",
-    "react-native": "0.79.5",
-    "solito": "^4.0.1"
+    "react-native": "0.79.5"
   },
   "devDependencies": {
     "@types/react": "^19.0.0",
