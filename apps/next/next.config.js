@@ -1,11 +1,7 @@
 /** @type {import('next').NextConfig} */
 
 module.exports = {
-  typescript: {
-    ignoreBuildErrors: true,
-  },
   transpilePackages: [
-    'solito',
     'react-native-web',
     'expo-linking',
     'expo-constants',
@@ -27,7 +23,7 @@ module.exports = {
     remotePatterns: [
       {
         protocol: 'https',
-        hostname: 'placehold.co',
+        hostname: 'placehold.co', // TODO: replace this with your image host or remove it if you don't use images
       },
     ],
   },

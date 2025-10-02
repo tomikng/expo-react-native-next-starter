@@ -67,9 +67,53 @@ A modern React Native monorepo template with Next.js and Expo.
 - `yarn ios` - Run on iOS simulator
 - `yarn android` - Run on Android emulator
 - `yarn build` - Build all packages
+- `yarn typecheck` - Run TypeScript type checking across all workspaces
 - `yarn test` - Run all tests with Vitest
 - `yarn test:watch` - Run tests in watch mode
-- `yarn lint` - Check code quality
+- `yarn lint` - Check code quality with Biome
+- `yarn lint:fix` - Auto-fix linting and formatting issues
+
+## Code Quality
+
+This project maintains high code quality through automated checks in separate CI workflows.
+
+### Type Checking
+
+TypeScript type safety is enforced without suppressing errors.
+
+**Running Type Checks:**
+```bash
+# Type check all workspaces
+yarn typecheck
+
+# Type check a specific workspace
+cd apps/next && yarn typecheck
+```
+
+**TypeScript Configuration:**
+- Type checking is enabled in all workspaces
+- Test files (`.test.ts`, `.test.tsx`) are excluded from builds but still type-checked
+- The Next.js build will fail on TypeScript errors (no `ignoreBuildErrors`)
+
+### Linting & Formatting
+
+This template uses [Biome](https://biomejs.dev/) for fast linting and formatting.
+
+**Running Lint Checks:**
+```bash
+# Check for linting issues
+yarn lint
+
+# Auto-fix issues
+yarn lint:fix
+```
+
+**CI Workflows:**
+- **Type Check**: Runs `yarn typecheck` to catch type errors
+- **Lint**: Runs `yarn lint` to check code quality
+- **Test**: Runs `yarn test` to execute all unit tests
+
+All three workflows run independently on push and pull requests.
 
 ## Testing
 

@@ -14,7 +14,8 @@
   ],
   "scripts": {
     "build": "echo 'No build needed'",
-    "watch": "echo 'No watch needed'"
+    "watch": "echo 'No watch needed'",
+    "typecheck": "tsc --noEmit"
   },
   "dependencies": {
     "react": "19.0.0",
