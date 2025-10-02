@@ -1,17 +1,18 @@
 # React Native Template
 
-A modern React Native monorepo template with Tamagui, Next.js, and Expo.
+A modern React Native monorepo template with Next.js and Expo.
 
 ## What's Included
 
 - 🏗️ **Monorepo setup** with Turbo and Yarn workspaces
 - ⚛️ **React Native** with Expo and Next.js
-- 🎨 **Tamagui** for cross-platform UI components
 - 📱 **Universal apps** - one codebase for web, iOS, and Android
+- 🎨 **React Native core components** with custom styling
 - 🔧 **TypeScript** throughout
 - 📦 **Package structure** for shared logic and components
 - 🎯 **Biome** for linting and formatting
 - 🔨 **Conventional commits** with automated changelog
+- 🚀 **Corepack** for consistent package manager versioning
 
 ## Project Structure
 
@@ -24,18 +25,24 @@ A modern React Native monorepo template with Tamagui, Next.js, and Expo.
 │   ├── ui/            # Shared UI components
 │   ├── app/           # Shared app logic and screens
 │   ├── api/           # API client and types
-│   └── config/        # Tamagui configuration and theme
+│   └── config/        # Shared configuration and theme
 └── turbo.json         # Turbo build configuration
 ```
 
 ## Getting Started
 
-1. **Install dependencies**
+1. **Enable Corepack** (if not already enabled)
+   ```bash
+   corepack enable
+   ```
+   This ensures you're using the correct Yarn version (4.5.0) specified in `package.json`.
+
+2. **Install dependencies**
    ```bash
    yarn install
    ```
 
-2. **Start the development servers**
+3. **Start the development servers**
    ```bash
    # Web development
    yarn web
@@ -47,7 +54,7 @@ A modern React Native monorepo template with Tamagui, Next.js, and Expo.
    yarn watch
    ```
 
-3. **Build for production**
+4. **Build for production**
    ```bash
    yarn build
    ```
@@ -62,30 +69,11 @@ A modern React Native monorepo template with Tamagui, Next.js, and Expo.
 - `yarn test` - Run tests
 - `yarn lint` - Check code quality
 
-## Adding New Components
-
-Use the built-in generators to create new components:
-
-```bash
-# Generate a new UI component
-yarn turbo gen ui-component
-
-# Generate a new screen
-yarn turbo gen screen
-
-# Generate a new API endpoint
-yarn turbo gen api-route
-```
-
 ## Customization
 
 ### Theme and Colors
 
-Edit `packages/config/src/colors.ts` and `packages/config/src/themes.ts` to customize your app's theme.
-
-### Fonts
-
-Update `packages/config/src/fonts.ts` to change typography settings.
+Edit `packages/config/src/index.ts` to customize your app's colors, spacing, and border radius values.
 
 ### API Configuration
 
