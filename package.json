@@ -20,7 +20,7 @@
     "web:prod": "yarn workspace next-app build",
     "web:prod:serve": "yarn workspace next-app serve",
     "build": "yarn workspaces foreach --all --exclude next-app run build",
-    "test": "vitest run ",
+    "test": "vitest run",
     "test:watch": "vitest",
     "prepare": "husky",
     "lint-sherif": "npx --yes sherif@latest",

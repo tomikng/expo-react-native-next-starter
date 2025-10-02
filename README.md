@@ -11,6 +11,7 @@ A modern React Native monorepo template with Next.js and Expo.
 - 🔧 **TypeScript** throughout
 - 📦 **Package structure** for shared logic and components
 - 🎯 **Biome** for linting and formatting
+- 🧪 **Vitest** for fast unit testing
 - 🔨 **Conventional commits** with automated changelog
 - 🚀 **Corepack** for consistent package manager versioning
 
@@ -66,8 +67,28 @@ A modern React Native monorepo template with Next.js and Expo.
 - `yarn ios` - Run on iOS simulator
 - `yarn android` - Run on Android emulator
 - `yarn build` - Build all packages
-- `yarn test` - Run tests
+- `yarn test` - Run all tests with Vitest
+- `yarn test:watch` - Run tests in watch mode
 - `yarn lint` - Check code quality
+
+## Testing
+
+This template uses [Vitest](https://vitest.dev/) for unit testing. Tests are located alongside the source files with a `.test.ts` or `.test.tsx` extension.
+
+**Running Tests:**
+```bash
+# Run all tests
+yarn test
+
+# Run tests in watch mode (for development)
+yarn test:watch
+```
+
+**Example Test Files:**
+- `apps/next/lib/utils.test.ts` - Utility function tests
+- `apps/next/app/layout.test.tsx` - Metadata tests
+- `packages/ui/src/Button.test.tsx` - Component tests
+- `packages/app/features/home/screen.test.tsx` - Screen component tests
 
 ## Customization
 

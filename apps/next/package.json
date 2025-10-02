@@ -8,7 +8,7 @@
     "start": "next start",
     "serve": "NODE_ENV=production next start --port 8151",
     "lint": "next lint",
-    "test": "vitest rm -rf .next"
+    "test": "vitest run"
   },
   "dependencies": {
     "app": "0.0.0",
@@ -19,7 +19,11 @@
     "react-native-web": "^0.20.0"
   },
   "devDependencies": {
+    "@types/jsdom": "^27",
     "@types/node": "^20.14.1",
+    "@types/react": "^19.2.0",
+    "@types/react-dom": "^19.2.0",
+    "jsdom": "^27.0.0",
     "next-transpile-modules": "^10.0.1",
     "tree-kill": "^1.2.2",
     "vitest": "^2.1.1"
