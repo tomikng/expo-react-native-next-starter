@@ -1,11 +1,14 @@
 'use client'
 
-import { View, Text, StyleSheet, ScrollView } from 'react-native'
 import { Button } from '@my/ui'
+import { ScrollView, StyleSheet, Text, View } from 'react-native'
 
 export const HomeScreen = () => {
   return (
-    <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
+    <ScrollView
+      style={styles.container}
+      contentContainerStyle={styles.contentContainer}
+    >
       {/* Hero Section */}
       <View style={styles.heroSection}>
         {/* App Icon */}
@@ -17,9 +20,7 @@ export const HomeScreen = () => {
         <View style={styles.titleSection}>
           <Text style={styles.mainTitle}>React Native Template</Text>
 
-          <Text style={styles.subtitle}>
-            A modern cross-platform starter with Next.js and Expo
-          </Text>
+          <Text style={styles.subtitle}>A modern cross-platform starter with Next.js and Expo</Text>
         </View>
 
         {/* Action Buttons */}

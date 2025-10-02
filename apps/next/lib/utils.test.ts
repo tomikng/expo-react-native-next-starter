@@ -1,5 +1,5 @@
-import { describe, it, expect } from 'vitest'
-import { formatDate, truncate, isValidEmail } from './utils'
+import { describe, expect, it } from 'vitest'
+import { formatDate, isValidEmail, truncate } from './utils'
 
 describe('formatDate', () => {
   it('should format date correctly', () => {

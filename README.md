@@ -108,12 +108,41 @@ yarn lint
 yarn lint:fix
 ```
 
-**CI Workflows:**
-- **Type Check**: Runs `yarn typecheck` to catch type errors
-- **Lint**: Runs `yarn lint` to check code quality
-- **Test**: Runs `yarn test` to execute all unit tests
+**CI Pipeline:**
 
-All three workflows run independently on push and pull requests.
+The GitHub Actions CI pipeline is optimized for speed with parallel execution and smart job dependencies:
+
+```
+┌─────────────────────────────────────────────────────┐
+│  Stage 1: Quality Checks (run in parallel)          │
+├─────────────────────┬───────────────────────────────┤
+│  Lint               │  Type Check                   │
+│  • Biome linter     │  • TypeScript (all packages)  │
+│  • Code formatting  │  • Next.js app                │
+│                     │  • Expo app                   │
+└─────────────────────┴───────────────────────────────┘
+            │                      │
+            └──────────┬───────────┘
+                       ▼
+    ┌──────────────────────────────────────┐
+    │   Both must pass before Stage 2      │
+    └──────────────────────────────────────┘
+                       │
+           ┌───────────┴───────────┐
+           ▼                       ▼
+┌──────────────────────┐  ┌──────────────────────┐
+│  Build               │  │  Test                │
+│  • Build packages    │  │  • Vitest unit tests │
+│  • Next.js build     │  │  • All workspaces    │
+│  • Expo validation   │  │                      │
+└──────────────────────┘  └──────────────────────┘
+```
+
+**Pipeline Benefits:**
+- ✅ **Fast Feedback**: Quality checks run first and in parallel
+- ✅ **Efficient**: Build and test run concurrently (only after quality checks pass)
+- ✅ **Cached**: Dependencies and build artifacts are cached between jobs
+- ✅ **Fail Fast**: Pipeline stops immediately if quality checks fail
 
 ## Testing
 

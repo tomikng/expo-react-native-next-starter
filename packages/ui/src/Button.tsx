@@ -1,4 +1,4 @@
-import { Pressable, Text, StyleSheet, type PressableProps } from 'react-native'
+import { Pressable, type PressableProps, StyleSheet, Text } from 'react-native'
 
 export type CustomButtonProps = Omit<PressableProps, 'style'> & {
   variant?: 'primary' | 'secondary' | 'ghost'
@@ -42,9 +42,7 @@ export const Button = ({ variant = 'primary', children, ...props }: CustomButton
       ]}
       {...props}
     >
-      <Text style={[styles.baseText, variantStyles.text]}>
-        {children}
-      </Text>
+      <Text style={[styles.baseText, variantStyles.text]}>{children}</Text>
     </Pressable>
   )
 }

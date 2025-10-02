@@ -3413,6 +3413,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/node@npm:^24.6.2":
+  version: 24.6.2
+  resolution: "@types/node@npm:24.6.2"
+  dependencies:
+    undici-types: "npm:~7.13.0"
+  checksum: 10c0/d029757711be85ec468686f66cd8eca78f5996d7e2b1a5b818436e0299b19925b0fb4f7509a6b62750abdc72d66f5750ce22fb8b55559baca86df89a9c44722e
+  languageName: node
+  linkType: hard
+
 "@types/react-dom@npm:^19.0.0":
   version: 19.1.9
   resolution: "@types/react-dom@npm:19.1.9"
@@ -5278,6 +5287,7 @@ __metadata:
   dependencies:
     "@babel/core": "npm:^7.24.6"
     "@my/ui": "npm:0.0.1"
+    "@types/node": "npm:^24.6.2"
     app: "npm:0.0.0"
     expo: "npm:~53.0.23"
     expo-constants: "npm:~17.1.7"
@@ -10151,6 +10161,13 @@ __metadata:
   version: 7.10.0
   resolution: "undici-types@npm:7.10.0"
   checksum: 10c0/8b00ce50e235fe3cc601307f148b5e8fb427092ee3b23e8118ec0a5d7f68eca8cee468c8fc9f15cbb2cf2a3797945ebceb1cbd9732306a1d00e0a9b6afa0f635
+  languageName: node
+  linkType: hard
+
+"undici-types@npm:~7.13.0":
+  version: 7.13.0
+  resolution: "undici-types@npm:7.13.0"
+  checksum: 10c0/44bbb0935425291351bfd8039571f017295b5d6dc5727045d0a4fea8c6ffe73a6703b48ce010f9cb539b9041a75b463f8cfe1e7309cab7486452505fb0d66151
   languageName: node
   linkType: hard
 

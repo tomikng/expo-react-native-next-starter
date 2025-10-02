@@ -1,7 +1,7 @@
 // Learn more: https://docs.expo.dev/guides/monorepos/
 // Learn more about Metro: https://metrobundler.dev/docs/configuration
 const { getDefaultConfig } = require('expo/metro-config')
-const path = require('path')
+const path = require('node:path')
 
 // Find the project and workspace directories
 const projectRoot = __dirname

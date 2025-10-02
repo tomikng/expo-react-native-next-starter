@@ -8,7 +8,9 @@
     "android": "npx expo run:android",
     "ios": "npx expo run:ios",
     "eject": "npx expo eject",
-    "prebuild": "yarn expo prebuild"
+    "prebuild": "yarn expo prebuild",
+    "typecheck": "tsc --noEmit",
+    "test": "echo 'No tests in expo app'"
   },
   "dependencies": {
     "@my/ui": "0.0.1",
@@ -31,6 +33,7 @@
   },
   "devDependencies": {
     "@babel/core": "^7.24.6",
+    "@types/node": "^24.6.2",
     "typescript": "~5.8.3"
   }
 }
