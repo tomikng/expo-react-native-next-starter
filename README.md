@@ -18,7 +18,6 @@ A modern, production-ready monorepo template for building universal apps with Re
 
 ## 📋 Table of Contents
 
-- [✨ Features](#-features)
 - [🚀 Quick Start](#-quick-start)
 - [📂 Project Structure](#-project-structure)
 - [🔧 Available Scripts](#-available-scripts)
@@ -33,40 +32,6 @@ A modern, production-ready monorepo template for building universal apps with Re
 - [🧪 CI/CD Pipeline](#-cicd-pipeline)
 - [🤝 Contributing](#-contributing)
 - [📄 License](#-license)
-
----
-
-## ✨ Features
-
-### 🏗️ **Monorepo Architecture**
-- **Yarn Workspaces** for dependency management
-- **Turbo** for blazing-fast builds with intelligent caching
-- **Modular packages** for shared logic and components
-
-### ⚛️ **Modern React Stack**
-- **React 19** with latest features
-- **React Compiler** - automatic memoization without `useMemo`/`useCallback`
-- **TypeScript** throughout for type safety
-- **React Native Web** for universal components
-
-### 📱 **Universal Apps**
-- **Expo** - React Native mobile app (iOS & Android)
-- **Next.js 15** - Modern web application
-- **Storybook** - Component documentation and development
-- One codebase for web, iOS, and Android
-
-### 🎨 **Developer Experience**
-- **Biome** - Fast linting and formatting (replaces ESLint + Prettier)
-- **Vitest** - Fast unit testing with React Testing Library
-- **Conventional Commits** with automated checks
-- **Husky** & **lint-staged** for pre-commit hooks
-- **Corepack** for consistent package manager versioning
-
-### 🚀 **Production Ready**
-- Type-safe API client structure
-- Shared theme configuration
-- CI/CD pipeline with parallel execution
-- Optimized build pipeline
 
 ---
 
