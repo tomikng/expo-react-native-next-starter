@@ -10,7 +10,7 @@ A modern, production-ready monorepo template for building universal apps with Re
 [![Next.js](https://img.shields.io/badge/Next.js-15.5-000000.svg)](https://nextjs.org/)
 [![Expo](https://img.shields.io/badge/Expo-~53.0-000020.svg)](https://expo.dev/)
 
-[Features](#-features) • [Quick Start](#-quick-start) • [Documentation](#-documentation) • [Scripts](#-available-scripts) • [Architecture](#-architecture)
+[Quick Start](#-quick-start) • [Documentation](#-documentation) • [Scripts](#-available-scripts) • [Architecture](#-architecture)
 
 </div>
 
@@ -522,7 +522,7 @@ Root (yarn workspace)
 
 ### Package Dependencies
 
-```
+```text
 ┌─────────────────────────────────────────┐
 │  Apps (Platform-Specific Entry Points) │
 └─────────────────────────────────────────┘
@@ -581,7 +581,7 @@ Benefits:
 
 The GitHub Actions CI pipeline is optimized for speed with parallel execution:
 
-```
+```text
 ┌──────────────────────────────────────────────┐
 │  Stage 1: Quality Checks (Parallel)          │
 ├──────────────────┬───────────────────────────┤
