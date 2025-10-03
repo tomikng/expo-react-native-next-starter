@@ -542,7 +542,7 @@ eas submit --platform android
 
 This template uses **Yarn Workspaces** + **Turbo** for efficient monorepo management:
 
-```
+```text
 Root (yarn workspace)
 ├── apps/*          # Platform-specific applications
 │   ├── expo        # React Native mobile
