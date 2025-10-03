@@ -18,6 +18,7 @@ module.exports = {
   ],
   experimental: {
     scrollRestoration: true,
+    reactCompiler: true,
   },
   images: {
     remotePatterns: [

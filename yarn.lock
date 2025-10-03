@@ -1136,6 +1136,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@babel/types@npm:^7.26.0":
+  version: 7.28.4
+  resolution: "@babel/types@npm:7.28.4"
+  dependencies:
+    "@babel/helper-string-parser": "npm:^7.27.1"
+    "@babel/helper-validator-identifier": "npm:^7.27.1"
+  checksum: 10c0/ac6f909d6191319e08c80efbfac7bd9a25f80cc83b43cd6d82e7233f7a6b9d6e7b90236f3af7400a3f83b576895bcab9188a22b584eb0f224e80e6d4e95f4517
+  languageName: node
+  linkType: hard
+
 "@biomejs/biome@npm:^2.1.2":
   version: 2.2.2
   resolution: "@biomejs/biome@npm:2.2.2"
@@ -3835,6 +3845,15 @@ __metadata:
   peerDependencies:
     "@babel/core": ^7.4.0 || ^8.0.0-0 <8.0.0
   checksum: 10c0/63aa8ed716df6a9277c6ab42b887858fa9f57a70cc1d0ae2b91bdf081e45d4502848cba306fb60b02f59f99b32fd02ff4753b373cac48ccdac9b7d19dd56f06d
+  languageName: node
+  linkType: hard
+
+"babel-plugin-react-compiler@npm:^19.1.0-rc.3":
+  version: 19.1.0-rc.3
+  resolution: "babel-plugin-react-compiler@npm:19.1.0-rc.3"
+  dependencies:
+    "@babel/types": "npm:^7.26.0"
+  checksum: 10c0/6811500cf81a309f104ec1de3fa9336932a1105e3c0e747b81a1d12e80c2cd4f531f7c42ec4441f96527ee20e19342af58d958241061d47a02b0d8bee66fbe35
   languageName: node
   linkType: hard
 
@@ -8289,6 +8308,7 @@ __metadata:
     "@commitlint/cli": "npm:^19.2.5"
     "@commitlint/config-conventional": "npm:^19.2.5"
     "@types/node": "npm:^20.14.1"
+    babel-plugin-react-compiler: "npm:^19.1.0-rc.3"
     check-dependency-version-consistency: "npm:^4.1.0"
     husky: "npm:^9.1.7"
     lint-staged: "npm:^16.0.0"
