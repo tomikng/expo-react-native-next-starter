@@ -42,6 +42,7 @@ module.exports = {
         'ci', // continuous integration
         'build', // build system
         'deps', // dependencies
+        'deps-ci', // CI/CD dependencies
         'release', // release process
         'test', // testing
         'lint', // linting & formatting
